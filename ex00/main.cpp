@@ -1,17 +1,20 @@
 
 #include "whatever.hpp"
 
-int main()
+int main( void )
 {
-	int x = 1;
-	int y = 2;
+	int a = 2;
+	int b = 3;
 	
-	std::cout << "Before: " << std::endl << "x = " << x << std::endl << "y = " << y << std::endl;
-	swap(x, y);
-	std::cout << "After: " << std::endl << "x = " << x << std::endl << "y = " << y << std::endl;
-	
-	int ret = min(x, y);
-	std::cout << "Min num: " << ret << std::endl;
-	ret = max(x, y);
-	std::cout << "Max num: " << ret << std::endl;
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	return 0;
 }
