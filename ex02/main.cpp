@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:22:00 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/20 13:11:36 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:26:19 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 //	Array<int> c (a);
 }*/
 
-int main(int, char**)
+int main()
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
@@ -43,9 +43,9 @@ int main(int, char**)
         mirror[i] = value;
     }
     //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
+    { 
+		Array<int> tmp = numbers;
+		Array<int> test(tmp);
     }
 
     for (int i = 0; i < MAX_VAL; i++)
@@ -77,6 +77,6 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-  //  delete [] mirror;//
+    delete [] mirror;
     return 0;
 }

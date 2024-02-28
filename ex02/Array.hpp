@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:52:56 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/20 12:54:03 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:26:10 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,29 +42,36 @@ template <typename T> Array<T>::Array(void)
 template <typename T> Array<T>::Array(unsigned int n)
 {
 	this->_size = n;
-	this->_arr = new T[this->_size];
+	this->_arr = new T[this->_size]();
 }
 
-template <typename T>Array<T>::~Array()
+template <typename T>Array< T >::~Array( void )
 {
-//	delete[] _arr;
-}
-
-template <typename T>Array<T>::Array(const Array &other)
-{
-	*this = other;
-}
-
-template <typename T>Array<T>& Array<T>::operator=(const Array& other)
-{
-	this->_size = other._size;
 	if (this->_size != 0)
 		delete[] this->_arr;
+}
+
+template <typename T> Array<T>::Array( const Array< T >& arr )
+{
+	this->_size = arr._size;
 	this->_arr = new T[this->_size]();
-	if ( this->_size != 0 )
+	if (this->_size != 0)
 	{
 		for (unsigned int i = 0; i < this->_size; i++)
-			this->_arr[i] = other._arr[i];
+			this->_arr[i] = arr._arr[i];
+	}
+}
+
+template < typename T > Array< T >&	Array< T >::operator=(const Array< T >& arr)
+{
+	this->_size = arr._size;
+	if (this->_size != 0)
+		delete [] this->_arr;
+	this->_arr = new T[ this->_size ]();
+	if (this->_size != 0)
+	{
+		for (unsigned int i = 0; i < this->_size; i++)
+			this->_arr[i] = arr._arr[i];
 	}
 	return (*this);
 }
