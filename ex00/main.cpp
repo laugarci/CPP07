@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 20:07:22 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/18 20:07:27 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:03:53 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main( void )
 {
-	int a = 2;
-	int b = 3;
+	int a = 0;
+	int b = 23;
 	
 	::swap( a, b );
 	std::cout << "a = " << a << ", b = " << b << std::endl;
