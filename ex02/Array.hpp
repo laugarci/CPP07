@@ -6,12 +6,18 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:52:56 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/28 12:26:10 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:44:22 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
+
+#define BOLD "\x1B[1m"
+#define RESET "\x1B[0m"
+#define RED "\x1B[31m"
+#define BGRED "\x1B[41m"
+#define GREEN "\x1B[32m"
 
 #include <iostream>
 #include <exception>
@@ -45,13 +51,13 @@ template <typename T> Array<T>::Array(unsigned int n)
 	this->_arr = new T[this->_size]();
 }
 
-template <typename T>Array< T >::~Array( void )
+template <typename T>Array<T>::~Array( void )
 {
 	if (this->_size != 0)
 		delete[] this->_arr;
 }
 
-template <typename T> Array<T>::Array( const Array< T >& arr )
+template <typename T> Array<T>::Array(const Array< T >& arr)
 {
 	this->_size = arr._size;
 	this->_arr = new T[this->_size]();
@@ -62,7 +68,12 @@ template <typename T> Array<T>::Array( const Array< T >& arr )
 	}
 }
 
-template < typename T > Array< T >&	Array< T >::operator=(const Array< T >& arr)
+template <typename T> unsigned int	Array< T >::size(void) const
+{
+	return (this->_size);
+}
+
+template <typename T> Array<T>&	Array<T>::operator=(const Array< T >& arr)
 {
 	this->_size = arr._size;
 	if (this->_size != 0)
