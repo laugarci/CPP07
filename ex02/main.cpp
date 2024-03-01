@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:22:00 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/29 14:01:14 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:07:13 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,20 @@ void more_tests()
 		std::cout << GREEN "Size: " RESET << str.size() << std::endl;	
 	}
 	catch (...)
+	{}
+	Array<int>arr4(10);
+	try {
+		std::cout << GREEN "Size: " RESET << arr4.size() << std::endl;
+		for (int i = 0; i < 10; i++)
+		{
+			int val = rand() % 200;
+			arr4[i] = val;
+		}
+		std::cout << GREEN "Random numbers: " RESET << std::endl;
+		for (int i = 0; i < 10; i++)
+			std::cout << arr4[i] << " ";
+		std::cout << std::endl;
+	} catch (...)
 	{}
 }
 

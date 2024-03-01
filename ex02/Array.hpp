@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:52:56 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/29 14:01:12 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:07:15 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Array
 		Array&		operator=(const Array& other);
 		unsigned int	size(void) const;
 		T&	operator[]( unsigned int n );
-		const T&	operator[]( const unsigned int n ) const;
+		const T&	operator[](const unsigned int n) const;
 };
 
 template <typename T> Array<T>::Array(void)
@@ -66,11 +66,6 @@ template <typename T> Array<T>::Array(const Array< T >& arr)
 		for (unsigned int i = 0; i < this->_size; i++)
 			this->_arr[i] = arr._arr[i];
 	}
-}
-
-template <typename T> unsigned int	Array< T >::size(void) const
-{
-	return (this->_size);
 }
 
 template <typename T> Array<T>&	Array<T>::operator=(const Array< T >& arr)
@@ -103,6 +98,11 @@ template <typename T>T& Array<T>::operator[](unsigned int n)
 	if (n >= this->_size)
 		throw std::out_of_range("Error: index out of range");
 	return (this->_arr[n]);
+}
+
+template <typename T>unsigned int Array<T>::size(void) const
+{
+	return (this->_size);
 }
 
 #endif
